@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>第一篇博客</title>
+    <link href="/2022/01/19/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+    <url>/2022/01/19/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+    
+    <content type="html"><![CDATA[<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><hr><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><p>试一试换行<br>使用两个星号括起来表示 <em>斜体</em> 字符<br>使用连续两个星号 <strong>粗体</strong> 括起来的是粗体</p><hr><blockquote><p>这是一组引用，单个大于号开头</p></blockquote><ul><li>一个”*”一个空格<ul><li>子列表 俩空格</li></ul></li><li>子列表1</li></ul><ol><li>数字编号列表</li><li>数字编号列表</li></ol><hr><p>写一段代码</p><div class="code-wrapper"><pre><code class="hljs">print(&quot;hellow world&quot;)这一段都是不会被格式处理，前面敲四个空格</code></pre></div><hr><p>测试一下==插入图片==怎么样 连续==会进行高亮标记</p><p>原始普通插入<br><img src="/2022/01/19/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/test.jpg" alt="图片名称"></p><p>更改大小和位置</p><div align="center"> <img width="150" height="150" src="/2022/01/19/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/test.jpg"> </div><div align="center"> 定义居中的语句 </div>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hello World</title>
     <link href="/2022/01/18/hello-world/"/>
     <url>/2022/01/18/hello-world/</url>
