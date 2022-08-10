@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Unity[UGUI]EventSystem.current.currentSelectedGameObject==NULL</title>
+    <link href="/2022/08/10/Unity%5BUGUI%5DEventSystem.current.currentSelectedGameObject==NULL/"/>
+    <url>/2022/08/10/Unity%5BUGUI%5DEventSystem.current.currentSelectedGameObject==NULL/</url>
+    
+    <content type="html"><![CDATA[<h1 id="EventSystem-current-currentSelectedGameObject"><a href="#EventSystem-current-currentSelectedGameObject" class="headerlink" title="EventSystem.current.currentSelectedGameObject"></a>EventSystem.current.currentSelectedGameObject</h1><p><em>The GameObject currently considered active by the EventSystem.</em></p><ul><li>EventSystem 当前认为处于活动状态的游戏对象<h1 id="报空场景"><a href="#报空场景" class="headerlink" title="报空场景"></a>报空场景</h1></li><li>获取鼠标点击Toggle时报空，原因是Toggle的Navigation设置为了None，换成Automatic后正常，<h1 id="UnityUI的Navigation"><a href="#UnityUI的Navigation" class="headerlink" title="UnityUI的Navigation"></a>UnityUI的Navigation</h1>设置为None后不再接收鼠标点击的焦点。<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220810151253.png" alt="20220810151253"><br>可手动设置Selected状态在保持None的状态下，得到currentSelectedGameObject<ol><li>设置EventSystem的firstSelected<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220810151725.png" alt="20220810151725"> </li><li>通过代码<code>EventSystem.current.SetSelectedGameObject()</code>直接设置SetSelected。</li></ol></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Unity</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Component</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Unity[Tips]利用属性切换物体显示隐藏</title>
     <link href="/2022/07/28/Unity%5BTips%5D%E5%88%A9%E7%94%A8%E5%B1%9E%E6%80%A7%E5%88%87%E6%8D%A2%E7%89%A9%E4%BD%93%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F/"/>
     <url>/2022/07/28/Unity%5BTips%5D%E5%88%A9%E7%94%A8%E5%B1%9E%E6%80%A7%E5%88%87%E6%8D%A2%E7%89%A9%E4%BD%93%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F/</url>
