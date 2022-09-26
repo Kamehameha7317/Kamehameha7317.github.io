@@ -4,6 +4,56 @@
   
   
   <entry>
+    <title>Unity[MonoBehavior]SetActive和enabled的使用与MonoBehavior的关系</title>
+    <link href="/2022/09/23/Unity%5BMonoBehavior%5DSetActive%E5%92%8Cenabled%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8EMonoBehavior%E7%9A%84%E5%85%B3%E7%B3%BB/"/>
+    <url>/2022/09/23/Unity%5BMonoBehavior%5DSetActive%E5%92%8Cenabled%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8EMonoBehavior%E7%9A%84%E5%85%B3%E7%B3%BB/</url>
+    
+    <content type="html"><![CDATA[<h1 id="问题发现"><a href="#问题发现" class="headerlink" title="问题发现"></a>问题发现</h1><p>当<code>GameObject</code>勾选，<code>Mesh Renderer</code>不勾选的情况下，运行游戏，可在<code>Start()</code>中从自身获取到<code>Materials</code>中元素。之前以为无法通过脚本获取<code>enabled=false</code>的组件内容，重新看了一下生命周期的相关内容，记录一下。<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923151740.png" alt="20220923151740"> </p><h1 id="MonoBehaviour的生命周期"><a href="#MonoBehaviour的生命周期" class="headerlink" title="MonoBehaviour的生命周期"></a>MonoBehaviour的生命周期</h1><p>周期图不在此复制了，网上有很多。<code>Monobehaviour</code>作为Unity的特殊组件，一个脚本继承的时候会自动调用很多方法，方法称为“事件函数”。</p><h3 id="Awake"><a href="#Awake" class="headerlink" title="Awake()"></a>Awake()</h3><ul><li>加载场景时会调用Awake</li><li>初始化使用 <code>Object.Instantiate</code> 创建的 GameObject时会调用Awake</li><li>在脚本实例的生存期内，只会调用一次，所以用于初始化，脚本的生存期持续到包含它的场景被卸载为止，如果重新加载场景，也会重新调用Awake</li><li>Unity 调用每个 GameObject 的 Awake 的顺序是不确定的,用 Awake 在脚本之间设置引用，并使用 /Start/（在所有 Awake 调用完成后调用）来回传递任何信息</li><li>对于未激活的 GameObject，调用 GameObject.SetActive (GameObject为On)可以将其激活。<h3 id="Start"><a href="#Start" class="headerlink" title="Start()"></a>Start()</h3></li><li>唤醒后执行一帧，与 Awake 不同的是，它在一帧之后执行。</li><li> 在脚本生命周期内仅调用一次</li><li> GameObject 和 MonoBehaviour 都在 ON 状态下运行（活动）<h3 id="OnEnable"><a href="#OnEnable" class="headerlink" title="OnEnable()"></a>OnEnable()</h3>与 Awake 和 Start 一样，它用于初始化。但是，与 Awake 和 Start 不同的是，它被多次调用是一个很大的功能。</li><li>在 GameObject 和 MonoBehaviour 都打开的情况下运行</li><li>唤醒后运行（Start前）</li><li>运行多次,在对象变为启用和激活状态时调用。<h3 id="OnDisable"><a href="#OnDisable" class="headerlink" title="OnDisable()"></a>OnDisable()</h3>OnEnable 的反向。关闭时调用。</li><li>当 GameObject 或 MonoBehaviour 关闭时工作</li><li>即使组件被移除也能工作<h3 id="Update"><a href="#Update" class="headerlink" title="Update()"></a>Update()</h3></li><li>运行每一帧</li><li>在 GameObject 和 MonoBehaviour 都打开的情况下运行<h3 id="OnDestory"><a href="#OnDestory" class="headerlink" title="OnDestory()"></a>OnDestory()</h3></li><li>场景或游戏结束时，发生 OnDestroy</li><li>删除 GameObject 或 MonoBehaviour执行</li><li>如果您过去没有运行 Awake，则不起作用。如果 GameObject 仍处于非活动状态，则 OnDestroy 将不起作用。<h1 id="选择SetActive-or-enabled"><a href="#选择SetActive-or-enabled" class="headerlink" title="选择SetActive or enabled"></a>选择SetActive or enabled</h1><code>Awake</code>、<code>Start</code>、<code>OnEnable</code>、<code>Update</code>执行的条件是<strong>GameObject或Component</strong>处于活动状态，活动状态如下图所示<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923164817.png" alt="20220923164817"><h3 id="GameObject-SetActive-和Component-enabled-的6种切换模式"><a href="#GameObject-SetActive-和Component-enabled-的6种切换模式" class="headerlink" title="GameObject(SetActive)和Component(enabled)的6种切换模式"></a>GameObject(SetActive)和Component(enabled)的6种切换模式</h3></li></ul><ol><li><code>GameObject</code>[SetActive(false)] <code>Component</code>[enabled=false]<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923165529.png" alt="20220923165529"></li></ol><p><strong>执行事件函数：无</strong><br>2. <code>GameObject</code>[SetActive(true)] <code>Component</code>[enabled=false]<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923165632.png" alt="20220923165632"><br><strong>执行事件函数：Awake()</strong><br>3. <code>GameObject</code>[SetActive(false)] <code>Component</code>[enabled=true]<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923165807.png" alt="20220923165807"><br><strong>执行事件函数：无</strong><br>4. <code>GameObject</code>[SetActive(true)] <code>Component</code>[enabled=true]<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923165857.png" alt="20220923165857"><br><strong>执行事件函数：Awake()、OnEnable()、Start()、Update()</strong></p><blockquote><p>除非<code>GameObject</code>被打开，否则什么都不会起作用<br>5. 先<code>GameObject</code>[SetActive(true)] <code>Component</code>[enabled=false]，再<code>GameObject</code>[SetActive(true)] <code>Component</code>[enabled=true]<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923170415.png" alt="20220923170415"><br><strong>状态发生变化时执行事件函数：OnEnable()、Start()、Update()，未执行Awake()</strong><br>6. 保持<code>Component</code>状态不变，使<code>GameObject</code>默认开启，然后关闭再打开<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923171436.png" alt="20220923171436"><br><strong>状态发生变化时执行事件函数：OnEnable()、Update()，未执行Awake()、Start()</strong><br>Awake()、Start()每个<code>GameObject</code>只能调用一次</p></blockquote><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><code>Component</code>的活动状态(enable)ON / OFF影响的是特定的事件函数，如果为 OFF 仅为不自动执行这些周期事件函数，所以不会影响到取其中的字段内容。</p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://shibuya24.info/entry/unity-active#%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3%E2%91%A0GameObject:OFF|%E3%82%B3%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88:OFF">https://shibuya24.info/entry/unity-active#%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3%E2%91%A0GameObject:OFF|%E3%82%B3%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88:OFF</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Unity</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Component</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Unity[Camera]RenderTexture使用</title>
+    <link href="/2022/09/23/Unity%5BCamera%5DRenderTexture%E4%BD%BF%E7%94%A8/"/>
+    <url>/2022/09/23/Unity%5BCamera%5DRenderTexture%E4%BD%BF%E7%94%A8/</url>
+    
+    <content type="html"><![CDATA[<h1 id="关于Camera-activeTexture和Camera-targetTexture"><a href="#关于Camera-activeTexture和Camera-targetTexture" class="headerlink" title="关于Camera.activeTexture和Camera.targetTexture"></a>关于Camera.activeTexture和Camera.targetTexture</h1><h2 id="在Get的时候，Get到的是否为同一个RenderTexture我知道这两个的区别是一个只能获得当前所正在渲染的RenderTexture，一个是既可以获得也可以设置渲染目标，但这样activeTexture有什么必要性呢"><a href="#在Get的时候，Get到的是否为同一个RenderTexture我知道这两个的区别是一个只能获得当前所正在渲染的RenderTexture，一个是既可以获得也可以设置渲染目标，但这样activeTexture有什么必要性呢" class="headerlink" title="在Get的时候，Get到的是否为同一个RenderTexture我知道这两个的区别是一个只能获得当前所正在渲染的RenderTexture，一个是既可以获得也可以设置渲染目标，但这样activeTexture有什么必要性呢"></a>在Get的时候，Get到的是否为同一个RenderTexture我知道这两个的区别是一个只能获得当前所正在渲染的RenderTexture，一个是既可以获得也可以设置渲染目标，但这样activeTexture有什么必要性呢</h2><ul><li>Camera.targetTexture必须在相机指定Render Target才会非null，Camera.activeTexture获取到的值和调用的时机有关系。官方文档中写着可以在OnPostRender中获取到，比如使用了后处理，在OnPostRender中可以获取到后处理申请的RenderTexture，在Update中获取就是null。如果给相机设置了RenderTexture，那么targetTexture就是设置的RenderTexture。如果没有开启HDR，在OnPostRender中activeTexture获取到的也是这个RenderTexture。如果开启了HDR，则是一个另外申请的RenderTexture。</li><li>推荐使用RenderDoc查看渲染状态，分为两种情况，在安卓平台上开启了Always Blit和没开启会不一样。开启了Always Blit，会在最后多一个Present的过程，在Present之前，会将所有的渲染渲染到一个叫tex的RenderTexture上（这里不考虑后处理以及HDR导致生成了额外的RenderTexture），在Present的时候将tex Copy到Backbuffer里面。如果没有开启AlwaysBlit，比如Blit Type是Never，那么所有的渲染都是直接渲染到Backbuffer的（这里同样不考虑RenderTexture的情况），Blit Type为Auto的时候没有遇到出现Present的情况，在线性空间也没出现Present 。Backbuffer和那个用来Present的tex这两个对象都可以理解为系统提供的，从C#脚本中是没法获取到的，而且从Profiler里面也是看不到这两个对象的大小的。</li><li>总结起来就是：大部分情况下Camera.targetTexture都是为null的，除非相机设置了RenderTarget。</li></ul><p>对于Camera.activeTexture，这个需要看调用时机，在OnPostRender中调用，如果有使用后处理或者HDR，则可以获取到申请到的RenderTexture，在Update里面获取是null的，其他的函数阶段没有详细测试过。</p><p>对于Backbuffer，这个系统是提供的，C#脚本是获取不到的。而且不一定是直接绘制到Backbuffer，就算没有使用后处理或者HDR，如果开启了Always Blit，也是会多一个中间层，在最后阶段中间层会Copy到Backbuffer。<br>————————————————<br>版权声明：本文为CSDN博主「UWA」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/UWA4D/article/details/109771440">https://blog.csdn.net/UWA4D/article/details/109771440</a></p><h1 id="关于RenderTexture释放问题的记录"><a href="#关于RenderTexture释放问题的记录" class="headerlink" title="关于RenderTexture释放问题的记录"></a>关于RenderTexture释放问题的记录</h1><ul><li>rt.Release()可以释放对应的显存内容(GfxDevice),但是不会删除这个UnityEngineObject本身,在Profiler里看的大小并没有考虑是否释放显存</li><li>先Release()再Destroy完全是多余的<br><a href="https://zhuanlan.zhihu.com/p/41251356">https://zhuanlan.zhihu.com/p/41251356</a></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Unity</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Component</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Unity[UGUI]EventSystem.current.currentSelectedGameObject==NULL</title>
     <link href="/2022/08/10/Unity%5BUGUI%5DEventSystem.current.currentSelectedGameObject==NULL/"/>
     <url>/2022/08/10/Unity%5BUGUI%5DEventSystem.current.currentSelectedGameObject==NULL/</url>
