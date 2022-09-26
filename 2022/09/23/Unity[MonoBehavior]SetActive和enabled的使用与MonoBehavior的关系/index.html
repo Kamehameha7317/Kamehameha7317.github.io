@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923170415.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923171436.png">
 <meta property="article:published_time" content="2022-09-23T06:46:11.000Z">
-<meta property="article:modified_time" content="2022-09-26T07:03:54.521Z">
+<meta property="article:modified_time" content="2022-09-26T07:09:58.356Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Component">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,19 +267,20 @@
 <li>在 GameObject 和 MonoBehaviour 都打开的情况下运行<h3 id="OnDestory"><a href="#OnDestory" class="headerlink" title="OnDestory()"></a>OnDestory()</h3></li>
 <li>场景或游戏结束时，发生 OnDestroy</li>
 <li>删除 GameObject 或 MonoBehaviour执行</li>
-<li>如果您过去没有运行 Awake，则不起作用。如果 GameObject 仍处于非活动状态，则 OnDestroy 将不起作用。<h1 id="选择SetActive-or-enabled"><a href="#选择SetActive-or-enabled" class="headerlink" title="选择SetActive or enabled"></a>选择SetActive or enabled</h1><code>Awake</code>、<code>Start</code>、<code>OnEnable</code>、<code>Update</code>执行的条件是<strong>GameObject或Component</strong>处于活动状态，活动状态如下图所示<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923164817.png" srcset="/img/loading.gif" lazyload alt="20220923164817"><h3 id="GameObject-SetActive-和Component-enabled-的6种切换模式"><a href="#GameObject-SetActive-和Component-enabled-的6种切换模式" class="headerlink" title="GameObject(SetActive)和Component(enabled)的6种切换模式"></a>GameObject(SetActive)和Component(enabled)的6种切换模式</h3></li>
+<li>如果您过去没有运行 Awake，则不起作用。如果 GameObject 仍处于非活动状态，则 OnDestroy 将不起作用。 </li>
 </ul>
-<ol>
+<h1 id="选择SetActive-or-enabled"><a href="#选择SetActive-or-enabled" class="headerlink" title="选择SetActive or enabled"></a>选择SetActive or enabled</h1><p><code>Awake</code>、<code>Start</code>、<code>OnEnable</code>、<code>Update</code>执行的条件是<strong>GameObject或Component</strong>处于活动状态，活动状态如下图所示<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923164817.png" srcset="/img/loading.gif" lazyload alt="20220923164817"> </p>
+<h3 id="GameObject-SetActive-和Component-enabled-的6种切换模式"><a href="#GameObject-SetActive-和Component-enabled-的6种切换模式" class="headerlink" title="GameObject(SetActive)和Component(enabled)的6种切换模式"></a>GameObject(SetActive)和Component(enabled)的6种切换模式</h3><ol>
 <li><code>GameObject</code>[SetActive(false)] <code>Component</code>[enabled=false]<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923165529.png" srcset="/img/loading.gif" lazyload alt="20220923165529"></li>
 </ol>
-<p><strong>执行事件函数：无</strong><br>2. <code>GameObject</code>[SetActive(true)] <code>Component</code>[enabled=false]<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923165632.png" srcset="/img/loading.gif" lazyload alt="20220923165632"><br><strong>执行事件函数：Awake()</strong><br>3. <code>GameObject</code>[SetActive(false)] <code>Component</code>[enabled=true]<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923165807.png" srcset="/img/loading.gif" lazyload alt="20220923165807"><br><strong>执行事件函数：无</strong><br>4. <code>GameObject</code>[SetActive(true)] <code>Component</code>[enabled=true]<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923165857.png" srcset="/img/loading.gif" lazyload alt="20220923165857"><br><strong>执行事件函数：Awake()、OnEnable()、Start()、Update()</strong></p>
+<p><strong>执行事件函数：无</strong><br>2. <code>GameObject</code>[SetActive(true)] <code>Component</code>[enabled=false]<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923165632.png" srcset="/img/loading.gif" lazyload alt="20220923165632"><br><strong>执行事件函数：Awake()</strong><br>3. <code>GameObject</code>[SetActive(false)] <code>Component</code>[enabled=true]<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923165807.png" srcset="/img/loading.gif" lazyload alt="20220923165807"><br><strong>执行事件函数：无</strong><br>4. <code>GameObject</code>[SetActive(true)] <code>Component</code>[enabled=true]<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923165857.png" srcset="/img/loading.gif" lazyload alt="20220923165857"><br><strong>执行事件函数：Awake()、OnEnable()、Start()、Update()</strong> </p>
 <blockquote>
 <p>除非<code>GameObject</code>被打开，否则什么都不会起作用 </p>
 </blockquote>
 <ol start="5">
-<li>先<code>GameObject</code>[SetActive(true)] <code>Component</code>[enabled=false]，再<code>GameObject</code>[SetActive(true)] <code>Component</code>[enabled=true]<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923170415.png" srcset="/img/loading.gif" lazyload alt="20220923170415"></li>
+<li>先<code>GameObject</code>[SetActive(true)] <code>Component</code>[enabled=false]，再<code>GameObject</code>[SetActive(true)] <code>Component</code>[enabled=true]<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923170415.png" srcset="/img/loading.gif" lazyload alt="20220923170415"> </li>
 </ol>
-<p><strong>状态发生变化时执行事件函数：OnEnable()、Start()、Update()，未执行Awake()</strong><br>6. 保持<code>Component</code>状态不变，使<code>GameObject</code>默认开启，然后关闭再打开<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923171436.png" srcset="/img/loading.gif" lazyload alt="20220923171436"><br><strong>状态发生变化时执行事件函数：OnEnable()、Update()，未执行Awake()、Start()</strong></p>
+<p><strong>状态发生变化时执行事件函数：OnEnable()、Start()、Update()，未执行Awake()</strong><br>6. 保持<code>Component</code>状态不变，使<code>GameObject</code>默认开启，然后关闭再打开<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923171436.png" srcset="/img/loading.gif" lazyload alt="20220923171436"><br><strong>状态发生变化时执行事件函数：OnEnable()、Update()，未执行Awake()、Start()</strong> </p>
 <blockquote>
 <p>Awake()、Start()每个<code>GameObject</code>只能调用一次</p>
 </blockquote>
