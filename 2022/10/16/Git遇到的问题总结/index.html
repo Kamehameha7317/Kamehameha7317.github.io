@@ -16,30 +16,21 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="问题发现当GameObject勾选，Mesh Renderer不勾选的情况下，运行游戏，可在Start()中从自身获取到Materials中元素。之前以为无法通过脚本获取enabled&#x3D;false的组件内容，重新看了一下生命周期的相关内容，记录一下。  MonoBehaviour的生命周期周期图不在此复制了，网上有很多。Monobehaviour作为Unity的特殊组件，一个脚本继承的时候会自动调">
+    <meta name="description" content="Gitee添加Unity项目https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_46055207&#x2F;article&#x2F;details&#x2F;122908870 error: RPC failed;出现在上传Gitee时出现，原因为使用的http方式上传，配置ssh后使用ssh上传解决。https:&#x2F;&#x2F;www.cnblogs.com&#x2F;r1cardo&#x2F;p&#x2F;14826320.html refusing to mer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Unity[MonoBehavior]SetActive和enabled的使用与MonoBehavior的关系">
-<meta property="og:url" content="https://kamehameha7317.github.io/2022/09/23/Unity[MonoBehavior]SetActive%E5%92%8Cenabled%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8EMonoBehavior%E7%9A%84%E5%85%B3%E7%B3%BB/index.html">
+<meta property="og:title" content="Git遇到的问题总结">
+<meta property="og:url" content="https://kamehameha7317.github.io/2022/10/16/Git%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Tabris&#39; blog">
-<meta property="og:description" content="问题发现当GameObject勾选，Mesh Renderer不勾选的情况下，运行游戏，可在Start()中从自身获取到Materials中元素。之前以为无法通过脚本获取enabled&#x3D;false的组件内容，重新看了一下生命周期的相关内容，记录一下。  MonoBehaviour的生命周期周期图不在此复制了，网上有很多。Monobehaviour作为Unity的特殊组件，一个脚本继承的时候会自动调">
+<meta property="og:description" content="Gitee添加Unity项目https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_46055207&#x2F;article&#x2F;details&#x2F;122908870 error: RPC failed;出现在上传Gitee时出现，原因为使用的http方式上传，配置ssh后使用ssh上传解决。https:&#x2F;&#x2F;www.cnblogs.com&#x2F;r1cardo&#x2F;p&#x2F;14826320.html refusing to mer">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923151740.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923164817.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923165529.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923165632.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923165807.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923165857.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923170415.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923171436.png">
-<meta property="article:published_time" content="2022-09-23T06:46:11.000Z">
-<meta property="article:modified_time" content="2022-09-26T07:09:58.356Z">
+<meta property="article:published_time" content="2022-10-16T06:23:51.000Z">
+<meta property="article:modified_time" content="2022-10-16T06:58:17.661Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Component">
+<meta property="article:tag" content="Help">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923151740.png">
   
   
-  <title>Unity[MonoBehavior]SetActive和enabled的使用与MonoBehavior的关系 - Tabris&#39; blog</title>
+  <title>Git遇到的问题总结 - Tabris&#39; blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -185,7 +176,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Unity[MonoBehavior]SetActive和enabled的使用与MonoBehavior的关系">
+            <span class="h2" id="subtitle" title="Git遇到的问题总结">
               
             </span>
 
@@ -195,8 +186,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-09-23 14:46" pubdate>
-        2022年9月23日 下午
+      <time datetime="2022-10-16 14:23" pubdate>
+        2022年10月16日 下午
       </time>
     </span>
   
@@ -206,7 +197,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.9k 字
+      407 字
     </span>
   
 
@@ -215,7 +206,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      17 分钟
+      4 分钟
     </span>
   
 
@@ -244,66 +235,24 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Unity[MonoBehavior]SetActive和enabled的使用与MonoBehavior的关系</h1>
+            <h1 style="display: none">Git遇到的问题总结</h1>
             
             <div class="markdown-body">
-              <h1 id="问题发现"><a href="#问题发现" class="headerlink" title="问题发现"></a>问题发现</h1><p>当<code>GameObject</code>勾选，<code>Mesh Renderer</code>不勾选的情况下，运行游戏，可在<code>Start()</code>中从自身获取到<code>Materials</code>中元素。之前以为无法通过脚本获取<code>enabled=false</code>的组件内容，重新看了一下生命周期的相关内容，记录一下。<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923151740.png" srcset="/img/loading.gif" lazyload alt="20220923151740"> </p>
-<h1 id="MonoBehaviour的生命周期"><a href="#MonoBehaviour的生命周期" class="headerlink" title="MonoBehaviour的生命周期"></a>MonoBehaviour的生命周期</h1><p>周期图不在此复制了，网上有很多。<code>Monobehaviour</code>作为Unity的特殊组件，一个脚本继承的时候会自动调用很多方法，方法称为“事件函数”。</p>
-<h3 id="Awake"><a href="#Awake" class="headerlink" title="Awake()"></a>Awake()</h3><ul>
-<li>加载场景时会调用Awake</li>
-<li>初始化使用 <code>Object.Instantiate</code> 创建的 GameObject时会调用Awake</li>
-<li>在脚本实例的生存期内，只会调用一次，所以用于初始化，脚本的生存期持续到包含它的场景被卸载为止，如果重新加载场景，也会重新调用Awake</li>
-<li>Unity 调用每个 GameObject 的 Awake 的顺序是不确定的,用 Awake 在脚本之间设置引用，并使用 /Start/（在所有 Awake 调用完成后调用）来回传递任何信息</li>
-<li>对于未激活的 GameObject，调用 GameObject.SetActive (GameObject为On)可以将其激活。<h3 id="Start"><a href="#Start" class="headerlink" title="Start()"></a>Start()</h3></li>
-<li>唤醒后执行一帧，与 Awake 不同的是，它在一帧之后执行。</li>
-<li> 在脚本生命周期内仅调用一次</li>
-<li> GameObject 和 MonoBehaviour 都在 ON 状态下运行（活动）<h3 id="OnEnable"><a href="#OnEnable" class="headerlink" title="OnEnable()"></a>OnEnable()</h3>与 Awake 和 Start 一样，它用于初始化。但是，与 Awake 和 Start 不同的是，它被多次调用是一个很大的功能。</li>
-<li>在 GameObject 和 MonoBehaviour 都打开的情况下运行</li>
-<li>唤醒后运行（Start前）</li>
-<li>运行多次,在对象变为启用和激活状态时调用。<h3 id="OnDisable"><a href="#OnDisable" class="headerlink" title="OnDisable()"></a>OnDisable()</h3>OnEnable 的反向。关闭时调用。</li>
-<li>当 GameObject 或 MonoBehaviour 关闭时工作</li>
-<li>即使组件被移除也能工作<h3 id="Update"><a href="#Update" class="headerlink" title="Update()"></a>Update()</h3></li>
-<li>运行每一帧</li>
-<li>在 GameObject 和 MonoBehaviour 都打开的情况下运行<h3 id="OnDestory"><a href="#OnDestory" class="headerlink" title="OnDestory()"></a>OnDestory()</h3></li>
-<li>场景或游戏结束时，发生 OnDestroy</li>
-<li>删除 GameObject 或 MonoBehaviour执行</li>
-<li>如果您过去没有运行 Awake，则不起作用。如果 GameObject 仍处于非活动状态，则 OnDestroy 将不起作用。 </li>
-</ul>
-<h1 id="选择SetActive-or-enabled"><a href="#选择SetActive-or-enabled" class="headerlink" title="选择SetActive or enabled"></a>选择SetActive or enabled</h1><p><code>Awake</code>、<code>Start</code>、<code>OnEnable</code>、<code>Update</code>执行的条件是<strong>GameObject或Component</strong>处于活动状态，活动状态如下图所示<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923164817.png" srcset="/img/loading.gif" lazyload alt="20220923164817"> </p>
-<h3 id="GameObject-SetActive-和Component-enabled-的6种切换模式"><a href="#GameObject-SetActive-和Component-enabled-的6种切换模式" class="headerlink" title="GameObject(SetActive)和Component(enabled)的6种切换模式"></a>GameObject(SetActive)和Component(enabled)的6种切换模式</h3><ol>
-<li><code>GameObject</code>[SetActive(false)] <code>Component</code>[enabled=false]<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923165529.png" srcset="/img/loading.gif" lazyload alt="20220923165529"></li>
-</ol>
-<p><strong>执行事件函数：无</strong><br>2. <code>GameObject</code>[SetActive(true)] <code>Component</code>[enabled=false]<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923165632.png" srcset="/img/loading.gif" lazyload alt="20220923165632"><br><strong>执行事件函数：Awake()</strong><br>3. <code>GameObject</code>[SetActive(false)] <code>Component</code>[enabled=true]<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923165807.png" srcset="/img/loading.gif" lazyload alt="20220923165807"><br><strong>执行事件函数：无</strong><br>4. <code>GameObject</code>[SetActive(true)] <code>Component</code>[enabled=true]<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923165857.png" srcset="/img/loading.gif" lazyload alt="20220923165857"><br><strong>执行事件函数：Awake()、OnEnable()、Start()、Update()</strong> </p>
-<blockquote>
-<p>除非<code>GameObject</code>被打开，否则什么都不会起作用 </p>
-</blockquote>
-<ol start="5">
-<li>先<code>GameObject</code>[SetActive(true)] <code>Component</code>[enabled=false]，再<code>GameObject</code>[SetActive(true)] <code>Component</code>[enabled=true]<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923170415.png" srcset="/img/loading.gif" lazyload alt="20220923170415"> </li>
-</ol>
-<p><strong>状态发生变化时执行事件函数：OnEnable()、Start()、Update()，未执行Awake()</strong><br>6. 保持<code>Component</code>状态不变，使<code>GameObject</code>默认开启，然后关闭再打开<br><img src="https://raw.githubusercontent.com/Kamehameha7317/Img_storage/main/blog/pic/20220923171436.png" srcset="/img/loading.gif" lazyload alt="20220923171436"><br><strong>状态发生变化时执行事件函数：OnEnable()、Update()，未执行Awake()、Start()</strong> </p>
-<blockquote>
-<p>Awake()、Start()每个<code>GameObject</code>只能调用一次</p>
-</blockquote>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><code>Component</code>的活动状态(enable)ON / OFF影响的是特定的事件函数，如果为 OFF 仅为不自动执行这些周期事件函数，所以不会影响到取其中的字段内容。</p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a target="_blank" rel="noopener" href="https://shibuya24.info/entry/unity-active#%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3%E2%91%A0GameObject:OFF|%E3%82%B3%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88:OFF">https://shibuya24.info/entry/unity-active#%E3%83%91%E3%82%BF%E3%83%BC%E3%83%B3%E2%91%A0GameObject:OFF|%E3%82%B3%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%8D%E3%83%B3%E3%83%88:OFF</a></p>
+              <h1 id="Gitee添加Unity项目"><a href="#Gitee添加Unity项目" class="headerlink" title="Gitee添加Unity项目"></a>Gitee添加Unity项目</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_46055207/article/details/122908870">https://blog.csdn.net/qq_46055207/article/details/122908870</a></p>
+<h1 id="error-RPC-failed"><a href="#error-RPC-failed" class="headerlink" title="error: RPC failed;"></a>error: RPC failed;</h1><p>出现在上传Gitee时出现，原因为使用的http方式上传，配置ssh后使用ssh上传解决。<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/r1cardo/p/14826320.html">https://www.cnblogs.com/r1cardo/p/14826320.html</a></p>
+<h1 id="refusing-to-merge-unrelated-histories"><a href="#refusing-to-merge-unrelated-histories" class="headerlink" title="refusing to merge unrelated histories"></a>refusing to merge unrelated histories</h1><p>将本地仓库和远程仓库合并时出现的问题，pull时出现该错误<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/u012145252/article/details/80628451">https://blog.csdn.net/u012145252/article/details/80628451</a></p>
+<h1 id="Please-enter-a-commit-message-to-explain-why-this-merge-is-necessary"><a href="#Please-enter-a-commit-message-to-explain-why-this-merge-is-necessary" class="headerlink" title="Please enter a commit message to explain why this merge is necessary"></a>Please enter a commit message to explain why this merge is necessary</h1><p>接上条，合并时出现的问题<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/2dc3bddff5f7">https://www.jianshu.com/p/2dc3bddff5f7</a></p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/Unity/">Unity</a>
-                    
-                  </div>
-                
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Component/">Component</a>
+                      <a class="hover-with-bg" href="/tags/Help/">Help</a>
                     
                   </div>
                 
@@ -320,18 +269,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/10/16/Git%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Git遇到的问题总结</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/09/23/Unity%5BCamera%5DRenderTexture%E4%BD%BF%E7%94%A8/">
-                        <span class="hidden-mobile">Unity[Camera]RenderTexture使用</span>
+                      <a href="/2022/09/23/Unity%5BMonoBehavior%5DSetActive%E5%92%8Cenabled%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8EMonoBehavior%E7%9A%84%E5%85%B3%E7%B3%BB/">
+                        <span class="hidden-mobile">Unity[MonoBehavior]SetActive和enabled的使用与MonoBehavior的关系</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

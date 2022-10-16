@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>Git遇到的问题总结</title>
+    <link href="/2022/10/16/Git%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
+    <url>/2022/10/16/Git%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Gitee添加Unity项目"><a href="#Gitee添加Unity项目" class="headerlink" title="Gitee添加Unity项目"></a>Gitee添加Unity项目</h1><p><a href="https://blog.csdn.net/qq_46055207/article/details/122908870">https://blog.csdn.net/qq_46055207/article/details/122908870</a></p><h1 id="error-RPC-failed"><a href="#error-RPC-failed" class="headerlink" title="error: RPC failed;"></a>error: RPC failed;</h1><p>出现在上传Gitee时出现，原因为使用的http方式上传，配置ssh后使用ssh上传解决。<br><a href="https://www.cnblogs.com/r1cardo/p/14826320.html">https://www.cnblogs.com/r1cardo/p/14826320.html</a></p><h1 id="refusing-to-merge-unrelated-histories"><a href="#refusing-to-merge-unrelated-histories" class="headerlink" title="refusing to merge unrelated histories"></a>refusing to merge unrelated histories</h1><p>将本地仓库和远程仓库合并时出现的问题，pull时出现该错误<br><a href="https://blog.csdn.net/u012145252/article/details/80628451">https://blog.csdn.net/u012145252/article/details/80628451</a></p><h1 id="Please-enter-a-commit-message-to-explain-why-this-merge-is-necessary"><a href="#Please-enter-a-commit-message-to-explain-why-this-merge-is-necessary" class="headerlink" title="Please enter a commit message to explain why this merge is necessary"></a>Please enter a commit message to explain why this merge is necessary</h1><p>接上条，合并时出现的问题<br><a href="https://www.jianshu.com/p/2dc3bddff5f7">https://www.jianshu.com/p/2dc3bddff5f7</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Help</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Unity[MonoBehavior]SetActive和enabled的使用与MonoBehavior的关系</title>
     <link href="/2022/09/23/Unity%5BMonoBehavior%5DSetActive%E5%92%8Cenabled%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8EMonoBehavior%E7%9A%84%E5%85%B3%E7%B3%BB/"/>
     <url>/2022/09/23/Unity%5BMonoBehavior%5DSetActive%E5%92%8Cenabled%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8EMonoBehavior%E7%9A%84%E5%85%B3%E7%B3%BB/</url>
